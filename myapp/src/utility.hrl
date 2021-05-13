@@ -1,8 +1,8 @@
 -record(data_object, {tweet, score, ratio}).
 -record(db_user, {user_info}).
 
--define(TWEET1,"server:4000/tweets/1").
--define(TWEET2,"server:4000/tweets/2").
+-define(TWEET1,"main-source:4000/tweets/1").
+-define(TWEET2,"main-source:4000/tweets/2").
 -define(PANIC, [{<<"text">>, <<"PANIC">>}]).
 
 -ifndef(INTERVAL).
