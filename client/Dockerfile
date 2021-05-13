@@ -1,0 +1,8 @@
+  
+FROM erlang:latest
+
+WORKDIR /client
+
+COPY rebar.config ./
+
+RUN rebar3 compile

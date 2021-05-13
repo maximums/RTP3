@@ -1,0 +1,17 @@
+{application, broker,
+ [{description, "An OTP application"},
+  {vsn, "0.1.0"},
+  {registered, []},
+  {mod, {broker_app, []}},
+  {applications,
+   [kernel,
+    stdlib
+   ]},
+  {env,[
+      {port, 17017}
+  ]},
+  {modules, []},
+
+  {licenses, ["Apache 2.0"]},
+  {links, []}
+ ]}.

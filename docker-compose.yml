@@ -1,0 +1,44 @@
+version: "3.9"
+
+services:
+  main-source:
+    image: alexburlacu/rtp-server:faf18x
+
+  broker:
+    container_name: broker
+    depends_on:
+      - main-source
+    build:
+      context: ./broker
+      dockerfile: dockerfile.yml
+    volumes:
+      - ./broker/src:/broker/src
+    working_dir: /broker
+    tty: true
+    command: rebar3 shell
+
+  myapp:
+    container_name: myapp
+    depends_on:
+      - broker
+    build:
+      context: ./myapp
+      dockerfile: dockerfile.yml
+    volumes:
+      - ./myapp/src:/stream/src
+    working_dir: /stream
+    tty: true
+    command: rebar3 shell
+
+  client:
+    container_name: client
+    depends_on:
+      - stream
+    build:
+      context: ./client
+      dockerfile: dockerfile.yml
+    volumes:
+      - ./client:/client
+    working_dir: /client
+    tty: true
+    command: rebar3 shell

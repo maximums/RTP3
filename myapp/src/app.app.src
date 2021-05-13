@@ -1,0 +1,17 @@
+{application, app,
+ [{description, "RTP - Laboratory work 2"},
+  {vsn, "0.1.0"},
+  {registered, [supervisor, router, autoscaler, connection, sink, buffer,
+   aggregator,dayn_super_engagement,second_main_super]},
+  {mod, {app, []}},
+  {applications,
+   [kernel,
+    stdlib
+   ]},
+  {env,[]},
+  {modules, [autoscaler, connection, daynamic_supervisor, router, worker, app, emotion_values,
+  sink, aggregator, engage_worker, worker_api, dayn_super_engagement, second_main_super, supervisor_api, aggr_storage, sse_stream]},
+
+  {licenses, ["Apache 2.0"]},
+  {links, []}
+ ]}.
